@@ -272,6 +272,10 @@ TWEEN.Tween = function (object) {
 		var elapsed;
 		var value;
 
+		if (!_isPlaying) {
+			return false;
+		}
+
 		if (time < _startTime) {
 			return true;
 		}
@@ -355,6 +359,9 @@ TWEEN.Tween = function (object) {
 				return true;
 
 			} else {
+
+				Tween.remove(this);
+				_isPlaying = false;
 
 				if (_onCompleteCallback !== null) {
 					_onCompleteCallback.call(_object);
