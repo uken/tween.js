@@ -360,7 +360,7 @@ TWEEN.Tween = function (object) {
 
 			} else {
 
-				Tween.remove(this);
+				TWEEN.remove(this);
 				_isPlaying = false;
 
 				if (_onCompleteCallback !== null) {
